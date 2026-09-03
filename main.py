@@ -1,10 +1,15 @@
+from pathlib import Path
+
 import pandas as pd
 
 from src.reporter import DataFrameReporter
 
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / 'data' / 'payments.csv'
+
 
 def main():
-    data = pd.read_csv('data/payments.csv')
+    data = pd.read_csv(DATA_PATH)
 
     reporter = DataFrameReporter(
         float_format='0.05f',
